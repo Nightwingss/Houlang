@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>后浪金属 | 金属板材与屋面材料供应</title>
+  <meta name="description" content="后浪金属主营镀锌板、铝板、彩钢瓦、方管、亮瓦、树脂瓦，服务工程采购、建材批发与加工配套需求。">
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #5b6673;
+      --line: #d8dde3;
+      --paper: #ffffff;
+      --soft: #f4f6f8;
+      --blue: #164f82;
+      --blue-dark: #103c63;
+      --steel: #6f7f8f;
+      --warn: #8a4b14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: #26313d;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar .wrap,
+    .header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar .wrap {
+      min-height: 44px;
+    }
+
+    .topbar strong {
+      font-size: 18px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header .wrap {
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      padding: 10px 12px;
+      border-radius: 4px;
+    }
+
+    .nav a:hover {
+      background: var(--soft);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 12px 22px;
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .hero {
+      background: linear-gradient(90deg, #f7f9fb 0%, #ffffff 58%, #eef2f5 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin-bottom: 24px;
+      color: #344252;
+      font-size: 22px;
+      line-height: 1.65;
+    }
+
+    .hero-actions,
+    .mid-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .quick-info div {
+      min-height: 86px;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .quick-info strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+
+    .quick-info span {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .hero-photo {
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #d8dde3;
+      box-shadow: 0 14px 28px rgba(25, 42, 61, 0.13);
+    }
+
+    .hero-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .hero-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hero-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 45%;
+      z-index: 2;
+      width: 48px;
+      height: 58px;
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 4px;
+      background: rgba(31, 41, 51, 0.78);
+      color: #fff;
+      font-size: 34px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .slider-btn:hover {
+      background: rgba(16, 60, 99, 0.92);
+    }
+
+    .slider-btn.prev {
+      left: 12px;
+    }
+
+    .slider-btn.next {
+      right: 12px;
+    }
+
+    .caption {
+      padding: 12px 14px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    section.alt {
+      background: var(--soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: 34px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .products {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      min-height: 170px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 3px 9px;
+      border: 1px solid #c9d3dd;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 700;
+      background: #f8fbfd;
+    }
+
+    .ability {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ability .card {
+      min-height: 190px;
+      border-top: 5px solid var(--steel);
+    }
+
+    .plain-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plain-list li {
+      padding: 16px 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--blue);
+      background: #fff;
+      color: #2d3b49;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 20px;
+    }
+
+    .gallery-group {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .gallery-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .gallery-title h3 {
+      margin-bottom: 0;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .gallery-title span {
+      color: var(--muted);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      flex: 0 0 285px;
+      scroll-snap-align: start;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #d8dde3;
+    }
+
+    .photo-card div {
+      min-height: 82px;
+      padding: 15px;
+    }
+
+    .photo-card strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 19px;
+    }
+
+    .photo-card span {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .inquiry {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .inquiry-box,
+    .contact-box {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .steps {
+      margin: 18px 0 0;
+      padding-left: 26px;
+    }
+
+    .steps li {
+      margin-bottom: 9px;
+    }
+
+    .contact-box {
+      background: #26313d;
+      color: #fff;
+    }
+
+    .contact-box h2 {
+      color: #fff;
+    }
+
+    .contact-row {
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .contact-row:last-of-type {
+      border-bottom: 0;
+    }
+
+    .contact-row span {
+      display: block;
+      color: #d8dde3;
+      font-size: 15px;
+    }
+
+    .contact-row strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .fiction {
+      color: var(--warn);
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 26px 0;
+      background: #18212b;
+      color: #dce3ea;
+      font-size: 15px;
+    }
+
+    .footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    @media (max-width: 940px) {
+      body {
+        font-size: 17px;
+      }
+
+      .topbar .wrap,
+      .header .wrap,
+      .section-head,
+      .footer .wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header .wrap {
+        padding: 12px 0;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero-grid,
+      .inquiry {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-slide img {
+        height: 420px;
+      }
+
+      .quick-info,
+      .products,
+      .ability,
+      .plain-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 24px, 1160px);
+      }
+
+      .topbar {
+        font-size: 15px;
+      }
+
+      .brand strong {
+        font-size: 25px;
+      }
+
+      .nav {
+        font-size: 16px;
+      }
+
+      .hero-grid {
+        padding: 34px 0;
+        gap: 22px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .lead {
+        font-size: 19px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 54px;
+      }
+
+      .quick-info,
+      .products,
+      .ability,
+      .plain-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-slide img,
+      .photo-card img {
+        height: 180px;
+      }
+
+      .gallery-group {
+        padding: 14px;
+      }
+
+      .gallery-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .photo-card {
+        flex-basis: 250px;
+      }
+
+      .slider-btn {
+        top: 42%;
+        width: 44px;
+        height: 52px;
+        font-size: 30px;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+
+      .card,
+      .inquiry-box,
+      .contact-box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div><strong>后浪金属</strong> 金属板材与屋面材料供应</div>
+      <div>询价电话：<strong>13451233069</strong>　微信：<strong>Xinxinran8866</strong></div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="后浪金属首页">
+        <strong>后浪金属</strong>
+        <span>工程采购 / 建材批发 / 加工配套</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#products">主营产品</a>
+        <a href="#ability">供货能力</a>
+        <a href="#gallery">实拍展示</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">湖北荆州 · 板材型材供应</p>
+          <h1>后浪金属 | 金属板材与屋面材料供应</h1>
+          <p class="lead">主营镀锌板、铝板、彩钢瓦、方管、亮瓦、树脂瓦，服务工程采购、建材批发与加工配套需求。</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:13451233069">拨打电话：13451233069</a>
+            <a class="btn secondary" href="#contact">查看微信与地址</a>
+          </div>
+          <div class="quick-info" aria-label="公司概况">
+            <div>
+              <strong>主营材料</strong>
+              <span>板材、型材、屋面围护材料</span>
+            </div>
+            <div>
+              <strong>服务客户</strong>
+              <span>工程采购、建材批发、加工厂</span>
+            </div>
+            <div>
+              <strong>成立时间</strong>
+              <span>创立于 2005 年</span>
+            </div>
+          </div>
+        </div>
+        <figure class="hero-photo" aria-label="后浪金属实拍图片轮播">
+          <button class="slider-btn prev" type="button" aria-label="查看上一张图片" data-slider-prev>&lsaquo;</button>
+          <div class="hero-slider" data-slider>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202317_3_117.jpg" alt="后浪金属仓储现场中的金属卷材">
+            </div>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202352_4_117.jpg" alt="金属卷材近景">
+            </div>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202402_6_117.jpg" alt="镀锌卷材展开">
+            </div>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202358_5_117.jpg" alt="红色彩涂卷材">
+            </div>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202553_9_117.jpg" alt="板材打包吊装现场">
+            </div>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202422_8_117.jpg" alt="蓝白压型材料">
+            </div>
+            <div class="hero-slide">
+              <img src="微信图片_20260605202414_7_117.jpg" alt="绿色防雨防尘材料">
+            </div>
+          </div>
+          <button class="slider-btn next" type="button" aria-label="查看下一张图片" data-slider-next>&rsaquo;</button>
+          <figcaption class="caption">实拍货品与仓储场景，便于客户了解产品状态。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>主营产品</h2>
+            <p>以下为第一版网页展示分类，具体厚度、宽度、长度、颜色、材质和库存情况，建议来电或加微信确认。</p>
+          </div>
+        </div>
+        <div class="grid products">
+          <article class="card">
+            <span class="tag">板材类</span>
+            <h3>镀锌板</h3>
+            <p>0.2-2mm，可定尺开平，下料。</p>
+          </article>
+          <article class="card">
+            <span class="tag">板材类</span>
+            <h3>铝板</h3>
+            <p>0.2-2mm，可定尺开平，下料。</p>
+          </article>
+          <article class="card">
+            <span class="tag">屋面材料</span>
+            <h3>彩钢瓦</h3>
+            <p>屋面、墙面、厂房维护。</p>
+          </article>
+          <article class="card">
+            <span class="tag">型材类</span>
+            <h3>方管</h3>
+            <p>冷镀锌，热镀锌，无缝方管。</p>
+          </article>
+          <article class="card">
+            <span class="tag">采光材料</span>
+            <h3>亮瓦</h3>
+            <p>可定尺生产。</p>
+          </article>
+          <article class="card">
+            <span class="tag">屋面材料</span>
+            <h3>树脂瓦</h3>
+            <p>可定尺生产，各种色调。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ability" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>供货能力</h2>
+            <p>围绕工程客户常见需求，页面重点说明现货、规格、加工、发货和沟通效率。</p>
+          </div>
+        </div>
+        <div class="grid ability">
+          <article class="card">
+            <h3>现货供应</h3>
+            <p>常备多类板材与型材库存，支持工程批量采购</p>
+          </article>
+          <article class="card">
+            <h3>规格确认</h3>
+            <p>可按客户需求确认厚度、宽度、长度、颜色及材质，减少反复沟通。</p>
+          </article>
+          <article class="card">
+            <h3>加工配套</h3>
+            <p>可根据需求提供裁切、压型、打包及物流发货配套服务</p>
+          </article>
+          <article class="card">
+            <h3>发货服务</h3>
+            <p>服务湖北及周边工程、门店、加工厂客户</p>
+          </article>
+        </div>
+        <div class="notice">
+          <strong>适合客户：</strong>钢结构厂、围挡工程、屋面墙面工程、建材批发、加工厂、工程承包商。
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>采购前请说明</h2>
+            <p>为了更快报价，建议客户联系时直接提供以下信息。</p>
+          </div>
+        </div>
+        <ul class="plain-list">
+          <li>产品名称：如镀锌板、彩钢瓦、方管等</li>
+          <li>规格尺寸：厚度、宽度、长度、板型</li>
+          <li>颜色材质：颜色、表面、材质要求</li>
+          <li>采购数量：张数、米数、吨数或工程用量</li>
+          <li>收货地址：方便核算物流和交期</li>
+          <li>使用场景：工程、批发、加工或维修</li>
+        </ul>
+        <div class="mid-actions">
+          <a class="btn" href="tel:13451233069">电话询价：13451233069</a>
+          <a class="btn secondary" href="#contact">微信咨询：Xinxinran8866</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>实拍展示</h2>
+            <p>使用真实货品和现场照片展示产品状态，图片未做过度修饰。</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <div class="gallery-group">
+            <div class="gallery-title">
+              <h3>板材卷材</h3>
+              <span>左右滚动查看更多</span>
+            </div>
+            <div class="gallery-scroll">
+              <figure class="photo-card">
+                <img src="微信图片_20260605202352_4_117.jpg" alt="金属卷材近景">
+                <div>
+                  <strong>金属卷材</strong>
+                  <span>卷材表面平整，方便客户查看货品状态。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260605202402_6_117.jpg" alt="镀锌卷材展开">
+                <div>
+                  <strong>镀锌板材</strong>
+                  <span>镀锌表面纹理清楚，可用于板材加工。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260605202358_5_117.jpg" alt="红色彩涂卷材">
+                <div>
+                  <strong>彩涂卷材</strong>
+                  <span>适用于屋面、墙面和相关工程材料需求。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260605202553_9_117.jpg" alt="板材打包吊装现场">
+                <div>
+                  <strong>板材打包</strong>
+                  <span>现场打包吊装，展示发货和装卸场景。</span>
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="gallery-group">
+            <div class="gallery-title">
+              <h3>瓦材屋面</h3>
+              <span>树脂瓦、亮瓦、压型材料</span>
+            </div>
+            <div class="gallery-scroll">
+              <figure class="photo-card">
+                <img src="微信图片_20260608111452_28_117.jpg" alt="红色树脂瓦实拍">
+                <div>
+                  <strong>树脂瓦</strong>
+                  <span>红色瓦型材料实拍，可定尺生产。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260605202422_8_117.jpg" alt="蓝白压型材料">
+                <div>
+                  <strong>压型材料</strong>
+                  <span>可用于屋面、墙面、包边或配套材料。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260605202414_7_117.jpg" alt="绿色防雨防尘材料">
+                <div>
+                  <strong>防雨防尘材料</strong>
+                  <span>展示防雨、防尘、遮阳类材料效果。</span>
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="gallery-group">
+            <div class="gallery-title">
+              <h3>型材管材</h3>
+              <span>方管、角钢、圆管库存</span>
+            </div>
+            <div class="gallery-scroll">
+              <figure class="photo-card">
+                <img src="微信图片_20260608111453_29_117.jpg" alt="角钢型材库存">
+                <div>
+                  <strong>角钢型材</strong>
+                  <span>仓库实拍，适合工程采购了解库存。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260608111454_30_117.jpg" alt="方管库存">
+                <div>
+                  <strong>方管库存</strong>
+                  <span>冷镀锌、热镀锌等方管可咨询规格。</span>
+                </div>
+              </figure>
+              <figure class="photo-card">
+                <img src="微信图片_20260608111455_31_117.jpg" alt="管材库存">
+                <div>
+                  <strong>管材库存</strong>
+                  <span>圆管、管材现场展示，便于确认货品。</span>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap inquiry">
+        <div class="inquiry-box">
+          <h2>联系询价</h2>
+          <p>工程和批发采购建议直接电话沟通，或添加微信发送规格、数量和收货地。资料越清楚，报价越快。</p>
+          <ol class="steps">
+            <li>说明采购产品：镀锌板、铝板、彩钢瓦、方管、亮瓦、树脂瓦等。</li>
+            <li>说明规格尺寸：厚度、宽度、长度、颜色、数量。</li>
+            <li>说明收货地址和是否需要加工、打包、发货服务。</li>
+          </ol>
+          <div class="notice">
+            经营理念：以诚待人，以实做事，认真服务每一位客户。更多仓库面积、库存规模、合作案例和资质资料可后续补充到本页面。
+          </div>
+        </div>
+
+        <aside class="contact-box" aria-label="联系方式">
+          <h2>联系我们</h2>
+          <div class="contact-row">
+            <span>联系人</span>
+            <strong>陈天陵</strong>
+          </div>
+          <div class="contact-row">
+            <span>联系电话</span>
+            <strong><a href="tel:13451233069">13451233069</a></strong>
+          </div>
+          <div class="contact-row">
+            <span>微信号</span>
+            <strong>Xinxinran8866</strong>
+          </div>
+          <div class="contact-row">
+            <span>地址</span>
+            <strong>湖北省荆州市沙市区西湖大道澳星环保公司院内3号厂房</strong>
+          </div>
+          <div class="contact-row">
+            <span>经营理念</span>
+            <strong>以诚待人，以实做事，认真服务每一位客户</strong>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="tel:13451233069">马上拨打电话</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>后浪金属 · 金属板材与屋面材料供应</div>
+      <div>本页面部分供货能力信息为临时文案，标注处请补充真实信息。</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var slider = document.querySelector("[data-slider]");
+      var prev = document.querySelector("[data-slider-prev]");
+      var next = document.querySelector("[data-slider-next]");
+
+      if (!slider || !prev || !next) {
+        return;
+      }
+
+      function slide(direction) {
+        var width = slider.clientWidth;
+        var maxLeft = slider.scrollWidth - width;
+        var current = slider.scrollLeft;
+        var target = current + direction * width;
+
+        if (target < 0) {
+          target = maxLeft;
+        }
+
+        if (target > maxLeft - 2) {
+          target = 0;
+        }
+
+        slider.scrollTo({ left: target, behavior: "smooth" });
+      }
+
+      prev.addEventListener("click", function () {
+        slide(-1);
+      });
+
+      next.addEventListener("click", function () {
+        slide(1);
+      });
+    })();
+  </script>
+</body>
+</html>
