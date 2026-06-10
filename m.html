@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>后浪金属手机版 | 电话询价</title>
+  <meta name="description" content="后浪金属手机版，主营镀锌板、铝板、彩钢瓦、方管、亮瓦、树脂瓦，电话微信快速询价。">
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #5c6670;
+      --line: #d8dde3;
+      --soft: #f4f6f8;
+      --blue: #255b7a;
+      --blue-dark: #24475f;
+      --red: #8f442f;
+      --paper: #ffffff;
+      --warn: #8a4b14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 86px;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a,
+    button {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--paper);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 12px 16px;
+      background: #2f3d49;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .top strong {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .top a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 13px;
+      border-radius: 4px;
+      background: #fff;
+      color: var(--blue-dark);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .top p {
+      margin: 7px 0 0;
+      color: #dce3ea;
+      font-size: 15px;
+    }
+
+    .hero {
+      padding: 22px 16px 18px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 9px;
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 13px;
+      font-size: 34px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin-bottom: 17px;
+      color: #334252;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 11px 13px;
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.25;
+      cursor: pointer;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .btn.red {
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .info-strip div {
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fafbfc;
+    }
+
+    .photo-area {
+      padding: 16px;
+      background: var(--soft);
+    }
+
+    .slider-wrap {
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #d8dde3;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+
+    .slide img {
+      height: 255px;
+      object-fit: cover;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 42%;
+      z-index: 2;
+      width: 44px;
+      height: 52px;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 4px;
+      background: rgba(31, 41, 51, 0.76);
+      color: #fff;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .arrow.prev {
+      left: 10px;
+    }
+
+    .arrow.next {
+      right: 10px;
+    }
+
+    .caption {
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    section {
+      padding: 24px 16px;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+
+    section.alt {
+      background: var(--soft);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 27px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .hint {
+      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .product {
+      min-height: 82px;
+      padding: 15px 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .product strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    .product span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .steps {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .steps li {
+      margin-bottom: 8px;
+      padding-left: 2px;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .gallery-group {
+      min-width: 0;
+      max-width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .gallery-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-title h3 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.3;
+    }
+
+    .gallery-title span {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 4px;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery figure {
+      flex: 0 0 210px;
+      scroll-snap-align: start;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .gallery img {
+      height: 145px;
+      object-fit: cover;
+    }
+
+    .gallery figcaption {
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact {
+      background: #2f3d49;
+      color: #fff;
+    }
+
+    .contact h2 {
+      color: #fff;
+    }
+
+    .contact-row {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+    }
+
+    .contact-row span {
+      display: block;
+      color: #d8dde3;
+      font-size: 15px;
+    }
+
+    .contact-row strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 21px;
+      line-height: 1.36;
+    }
+
+    .fiction {
+      color: var(--warn);
+      font-weight: 700;
+    }
+
+    .contact .fiction {
+      color: #ffd39a;
+    }
+
+    .copy-note {
+      min-height: 24px;
+      margin: 8px 0 0;
+      color: #dce3ea;
+      font-size: 15px;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.96);
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -8px 20px rgba(25, 42, 61, 0.12);
+    }
+
+    .bottom-bar .btn {
+      min-height: 58px;
+      padding: 10px 8px;
+      font-size: 18px;
+    }
+
+    .footer {
+      padding: 18px 16px 26px;
+      background: #202b35;
+      color: #dce3ea;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (min-width: 560px) {
+      .slide img {
+        height: 330px;
+      }
+
+      .gallery img {
+        height: 155px;
+      }
+
+      .gallery figure {
+        flex-basis: 230px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      body {
+        font-size: 17px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .actions,
+      .bottom-bar {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding-bottom: 150px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div class="top-row">
+        <strong>后浪金属</strong>
+        <a href="tel:13451233069">拨打电话</a>
+      </div>
+      <p>金属板材 / 屋面材料 / 工程采购 / 建材批发</p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">湖北荆州 · 手机询价版</p>
+        <h1>后浪金属<br>板材型材供应</h1>
+        <p class="lead">主营镀锌板、铝板、彩钢瓦、方管、亮瓦、树脂瓦。工程采购、建材批发、加工配套可直接电话或微信联系。</p>
+        <div class="actions">
+          <a class="btn red" href="tel:13451233069">电话询价<br>13451233069</a>
+          <button class="btn secondary" type="button" data-copy-wechat>复制微信<br>Xinxinran8866</button>
+        </div>
+        <div class="info-strip">
+          <div><strong>联系人：</strong>陈天陵</div>
+          <div><strong>地址：</strong>湖北省荆州市沙市区西湖大道澳星环保公司院内3号厂房</div>
+        </div>
+      </section>
+
+      <div class="photo-area" aria-label="产品实拍图片">
+        <div class="slider-wrap">
+          <button class="arrow prev" type="button" aria-label="上一张图片" data-slider-prev>&lsaquo;</button>
+          <div class="slider" data-slider>
+            <div class="slide"><img src="微信图片_20260605202317_3_117.jpg" alt="后浪金属仓储现场中的金属卷材"></div>
+            <div class="slide"><img src="微信图片_20260605202352_4_117.jpg" alt="金属卷材近景"></div>
+            <div class="slide"><img src="微信图片_20260605202402_6_117.jpg" alt="镀锌卷材展开"></div>
+            <div class="slide"><img src="微信图片_20260605202358_5_117.jpg" alt="红色彩涂卷材"></div>
+            <div class="slide"><img src="微信图片_20260605202553_9_117.jpg" alt="板材打包吊装现场"></div>
+            <div class="slide"><img src="微信图片_20260605202422_8_117.jpg" alt="蓝白压型材料"></div>
+            <div class="slide"><img src="微信图片_20260605202414_7_117.jpg" alt="绿色防雨防尘材料"></div>
+          </div>
+          <button class="arrow next" type="button" aria-label="下一张图片" data-slider-next>&rsaquo;</button>
+          <div class="caption">左右滑动或点击箭头查看实拍货品照片。</div>
+        </div>
+      </div>
+
+      <section>
+        <h2>主营产品</h2>
+        <p class="hint">手机客户先看品类，具体规格建议电话或微信确认。</p>
+        <div class="product-grid">
+          <div class="product"><strong>镀锌板</strong><span>0.2-2mm，可定尺开平，下料</span></div>
+          <div class="product"><strong>亮瓦</strong><span>可定尺生产</span></div>
+          <div class="product"><strong>铝板</strong><span>0.2-2mm，可定尺开平，下料</span></div>
+          <div class="product"><strong>彩钢瓦</strong><span>屋面、墙面、厂房维护</span></div>
+          <div class="product"><strong>方管</strong><span>冷镀锌，热镀锌，无缝方管</span></div>
+          <div class="product"><strong>树脂瓦</strong><span>可定尺生产，各种色调</span></div>
+        </div>
+      </section>
+
+      <section class="alt">
+        <h2>适合这些客户</h2>
+        <div class="card-list">
+          <div class="card">
+            <strong>工程采购</strong>
+            <p>钢结构、围挡工程、屋面墙面工程等用料咨询。</p>
+          </div>
+          <div class="card">
+            <strong>建材批发</strong>
+            <p>门店、批发商、长期采购客户可电话确认规格和发货。</p>
+          </div>
+          <div class="card">
+            <strong>加工配套</strong>
+            <p>可根据需求提供裁切、压型、打包及物流发货配套服务</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>询价请说明</h2>
+        <ol class="steps">
+          <li>要什么产品：镀锌板、铝板、彩钢瓦、方管等。</li>
+          <li>需要什么规格：厚度、宽度、长度、颜色、板型。</li>
+          <li>采购数量：张数、米数、吨数或工程用量。</li>
+          <li>收货地址：方便核算发货和交期。</li>
+        </ol>
+        <div class="actions">
+          <a class="btn red" href="tel:13451233069">现在电话询价</a>
+          <button class="btn secondary" type="button" data-copy-wechat>复制微信号</button>
+        </div>
+      </section>
+
+      <section class="alt">
+        <h2>更多实拍</h2>
+        <div class="gallery">
+          <div class="gallery-group">
+            <div class="gallery-title">
+              <h3>板材卷材</h3>
+              <span>左右滑动</span>
+            </div>
+            <div class="gallery-scroll">
+              <figure>
+                <img src="微信图片_20260605202352_4_117.jpg" alt="金属卷材近景">
+                <figcaption>金属卷材近景</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260605202402_6_117.jpg" alt="镀锌板材展开">
+                <figcaption>镀锌板材展开</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260605202358_5_117.jpg" alt="红色彩涂卷材">
+                <figcaption>彩涂卷材实拍</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260605202553_9_117.jpg" alt="板材打包吊装现场">
+                <figcaption>板材打包吊装现场</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="gallery-group">
+            <div class="gallery-title">
+              <h3>瓦材屋面</h3>
+              <span>树脂瓦 / 压型</span>
+            </div>
+            <div class="gallery-scroll">
+              <figure>
+                <img src="微信图片_20260608111452_28_117.jpg" alt="红色树脂瓦实拍">
+                <figcaption>红色树脂瓦实拍</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260605202422_8_117.jpg" alt="蓝白压型材料">
+                <figcaption>蓝白压型材料</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260605202414_7_117.jpg" alt="绿色防雨防尘材料">
+                <figcaption>防雨防尘材料</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="gallery-group">
+            <div class="gallery-title">
+              <h3>型材管材</h3>
+              <span>方管 / 圆管 / 角钢</span>
+            </div>
+            <div class="gallery-scroll">
+              <figure>
+                <img src="微信图片_20260608111453_29_117.jpg" alt="角钢型材库存">
+                <figcaption>角钢型材库存</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260608111454_30_117.jpg" alt="方管库存">
+                <figcaption>方管库存</figcaption>
+              </figure>
+              <figure>
+                <img src="微信图片_20260608111455_31_117.jpg" alt="管材库存">
+                <figcaption>管材库存</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact">
+        <h2>联系我们</h2>
+        <div class="contact-row">
+          <span>联系人</span>
+          <strong>陈天陵</strong>
+        </div>
+        <div class="contact-row">
+          <span>联系电话</span>
+          <strong><a href="tel:13451233069">13451233069</a></strong>
+        </div>
+        <div class="contact-row">
+          <span>微信号</span>
+          <strong>Xinxinran8866</strong>
+        </div>
+        <div class="contact-row">
+          <span>地址</span>
+          <strong>湖北省荆州市沙市区西湖大道澳星环保公司院内3号厂房</strong>
+        </div>
+        <div class="contact-row">
+          <span>经营理念</span>
+          <strong>以诚待人，以实做事，认真服务每一位客户</strong>
+        </div>
+        <p class="copy-note" data-copy-note></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      后浪金属 · 手机询价版<br>
+      部分规格与供货能力为临时文案，标注处请补充真实信息。
+    </footer>
+  </div>
+
+  <div class="bottom-bar" aria-label="固定联系按钮">
+    <a class="btn red" href="tel:13451233069">拨打电话</a>
+    <button class="btn secondary" type="button" data-copy-wechat>复制微信</button>
+  </div>
+
+  <script>
+    (function () {
+      var wechat = "Xinxinran8866";
+      var note = document.querySelector("[data-copy-note]");
+      var copyButtons = document.querySelectorAll("[data-copy-wechat]");
+      var slider = document.querySelector("[data-slider]");
+      var prev = document.querySelector("[data-slider-prev]");
+      var next = document.querySelector("[data-slider-next]");
+
+      function setNote(text) {
+        if (note) {
+          note.textContent = text;
+        }
+      }
+
+      function fallbackCopy(text) {
+        var input = document.createElement("textarea");
+        input.value = text;
+        input.setAttribute("readonly", "");
+        input.style.position = "fixed";
+        input.style.left = "-9999px";
+        document.body.appendChild(input);
+        input.select();
+        try {
+          document.execCommand("copy");
+          setNote("微信号已复制：" + text);
+        } catch (error) {
+          setNote("微信号：" + text);
+        }
+        document.body.removeChild(input);
+      }
+
+      copyButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(wechat).then(function () {
+              setNote("微信号已复制：" + wechat);
+            }).catch(function () {
+              fallbackCopy(wechat);
+            });
+          } else {
+            fallbackCopy(wechat);
+          }
+        });
+      });
+
+      function slide(direction) {
+        if (!slider) {
+          return;
+        }
+        var width = slider.clientWidth;
+        var maxLeft = slider.scrollWidth - width;
+        var target = slider.scrollLeft + direction * width;
+        if (target < 0) {
+          target = maxLeft;
+        }
+        if (target > maxLeft - 2) {
+          target = 0;
+        }
+        slider.scrollTo({ left: target, behavior: "smooth" });
+      }
+
+      if (prev) {
+        prev.addEventListener("click", function () {
+          slide(-1);
+        });
+      }
+
+      if (next) {
+        next.addEventListener("click", function () {
+          slide(1);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
